@@ -3,32 +3,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Task Manager</title>
+    <style>
+      /* Estilo geral */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      #app {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      button {
+        background-color: #21cc29;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      button:hover {
+        background-color: #1aa020;
+      }
+
+      fieldset {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+
+      legend {
+        font-weight: bold;
+        color: #555;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      #tasksList {
+        white-space: pre-line;
+        list-style: none;
+        padding: 10px;
+        margin: 0;
+        background-color: #f9f9f9;
+        border: 1px solid #21cc29;
+        border-radius: 5px;
+        display: none;
+      }
+
+      #tasksList li {
+        padding: 8px;
+        margin-bottom: 5px;
+        background: #e8f5e9;
+        border: 1px solid #c8e6c9;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
-    <div>
-      <form action="">
-        <fieldset>
-          <select name="notification" id="">
+    <div id="app">
+      <button id="toggleMode">Toggle Mode</button>
+      <hr />
+      <form id="taskForm">
+        <fieldset id="todoSet">
+          <legend>Todo:</legend>
+          <label for="todoDescription">Description:</label>
+          <input type="text" name="todoDescription" id="todoDescription" />
+          <button type="submit">Submit</button>
+        </fieldset>
+        <fieldset id="reminderSet" style="display: none" disabled>
+          <legend>Reminder:</legend>
+          <label for="reminderDescription">Description:</label>
+          <input
+            type="text"
+            name="reminderDescription"
+            id="reminderDescription"
+          />
+          <label for="scheduleDate">Date:</label>
+          <input type="date" name="scheduleDate" id="scheduleDate" />
+          <label for="notification">Notification:</label>
+          <select name="notification" id="notification">
             <option value="SMS">SMS</option>
             <option value="EMAIL">EMAIL</option>
             <option value="PUSH_NOTIFICATION">Push notification</option>
           </select>
-          <button type="submit">Submit</button>
+          <button type="button">Submit</button>
         </fieldset>
       </form>
-      <ul
-        id="tasksList"
-        style="
-          white-space: pre-line;
-          list-style: none;
-          padding: 10px;
-          margin: 0;
-          background-color: #f9f9f9;
-          border: 1px solid #ddd;
-          border-radius: 5px;
-        "
-      ></ul>
+      <ul id="tasksList"></ul>
     </div>
     <script src="/dist/index.js"></script>
   </body>
