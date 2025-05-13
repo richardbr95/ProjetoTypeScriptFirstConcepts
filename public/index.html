@@ -79,7 +79,7 @@
       }
 
       #tasksList li {
-        padding: 8px;
+        padding: 10px;
         margin-bottom: 5px;
         background: #e8f5e9;
         border: 1px solid #c8e6c9;
@@ -106,15 +106,15 @@
             name="reminderDescription"
             id="reminderDescription"
           />
-          <label for="scheduleDate">Date:</label>
-          <input type="date" name="scheduleDate" id="scheduleDate" />
-          <label for="notification">Notification:</label>
-          <select name="notification" id="notification">
+          <label for="reminderDate">Date:</label>
+          <input type="date" name="reminderDate" id="reminderDate" />
+          <label for="notifications">Notification:</label>
+          <select name="notifications" id="notifications">
             <option value="SMS">SMS</option>
             <option value="EMAIL">EMAIL</option>
             <option value="PUSH_NOTIFICATION">Push notification</option>
           </select>
-          <button type="button">Submit</button>
+          <button type="submit">Submit</button>
         </fieldset>
       </form>
       <ul id="tasksList"></ul>
